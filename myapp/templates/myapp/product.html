@@ -1,0 +1,11 @@
+{% extends 'myapp/parent.html' %}
+
+{% block title %}
+    {{ product.title }} | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ product.title }}</h1>
+    <p>{{ product.description }}</p>
+    {% include 'myapp/includes/tag_list.html' with tags=product.tags.all %}
+{% endblock %}

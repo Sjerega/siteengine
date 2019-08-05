@@ -1,0 +1,26 @@
+{% extends 'myapp/parent.html' %}
+
+{% block title %}
+    Tag Create | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <form action="{% url 'tag_create_url' %}" method="post">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div>
+                {{ field.label }}
+                {{ field }}
+
+                {% if field.errors %}
+                    <div>{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <button type="submit">Create tag</button>
+    </form>
+    
+{% endblock %}

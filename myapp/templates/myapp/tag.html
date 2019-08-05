@@ -1,0 +1,14 @@
+{% extends 'myapp/parent.html' %}
+
+{% block title %}
+    {{ tag.title }} | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h1>Products with "{{ tag.title|upper }}" tag:</h1>
+    
+    {% for product in tag.products.all %}
+        {% include 'myapp/includes/product_card.html' %}
+    {% endfor %}
+    
+{% endblock %}

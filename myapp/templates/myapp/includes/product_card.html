@@ -1,0 +1,5 @@
+<h2><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h2>
+<p><span style="color:grey">Добавлен: </span>{{ product.date_add }}</p>
+<p>{{ product.description|truncatewords:2 }}</p>
+
+{% include 'myapp/includes/tag_list.html' with tags=product.tags.all %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        {% block title %}
+            MAIN TITLE
+        {% endblock %}
+    </title>
+</head>
+<body>
+<nav>
+    <a href="{% url 'home' %}">home</a>
+    <a href="{% url 'test-page' %}">test-page</a>
+    <a href="{% url 'myapp/product_list_url' %}">myapp - products</a>
+    <a href="{% url 'myapp/tags_list_url' %}">myapp - tags</a>
+</nav>
+{% block content %}
+    MAIN BODY
+{% endblock %}
+</body>
+</html>

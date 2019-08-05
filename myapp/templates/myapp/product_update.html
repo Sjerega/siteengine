@@ -1,0 +1,26 @@
+{% extends 'myapp/parent.html' %}
+
+{% block title %}
+    Edit product "{{ product.title|upper }}" | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <form action="{{ product.get_update_url }}" method="post">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div>
+                {{ field.label }}
+                {{ field }}
+
+                {% if field.errors %}
+                    <div>{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <button type="submit">Update product</button>
+    </form>
+
+{% endblock %}

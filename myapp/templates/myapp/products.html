@@ -1,0 +1,12 @@
+{% extends 'myapp/parent.html' %}
+
+{% block title %}
+    products list | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<h1>{{ 'products list'|title }}</h1>
+{% for product in products %}
+    {% include 'myapp/includes/product_card.html' %}
+{% endfor %}
+{% endblock %}
